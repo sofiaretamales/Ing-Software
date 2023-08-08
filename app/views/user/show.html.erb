@@ -1,0 +1,25 @@
+<div class="columns is-mobile is-centered">
+  <div class="column is-half">
+    <div class="box has-background-light">
+        <h1 class="title has-text-centered"> Mi perfil </h1>
+
+        <% if current_user.image.attached? %>
+        <label class="label has-text-centered">
+          <%= image_tag(current_user.image, style: "height: 110px;")%>
+          </label>
+        <% end %>
+        
+        <label class="label has-text-centered">Nombre</label>
+        <h4 class="text has-text-centered"> <%= current_user.name %> </h4>
+
+        <label class="label has-text-centered">Email</label>
+        <h4 class="text has-text-centered"> <%= current_user.email %> </h4>
+
+        <label class="label has-text-centered">Teléfono</label>
+        <h4 class="text has-text-centered"> <%= current_user.phone %> </h4>
+
+        <%= link_to "Editar perfil", edit_user_registration_path %>
+        <%= link_to "Volver", :back %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price: 200
+  category: Hogar
+
+two:
+  name:
+  description:
+  seller:
+  price:
+  category:
+
+three:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price: -200
+  category: Hogar
+
+four:
+  name:
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price: 200
+  category: Hogar
+
+five:
+  name: Florero
+  description:
+  seller: Krea
+  price: 200
+  category: Hogar
+
+six:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price:
+  category: Hogar
+
+seven:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: 
+  price: 200
+  category: Hogar
+
+eight:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price: cien pesos
+  category: Hogar
+
+nine:
+  name: Florero
+  description: Florero de vidrio, tamaño pequeño.
+  seller: Krea
+  price: 200
+  category:

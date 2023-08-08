@@ -1,0 +1,14 @@
+<h1>Chats</h1>
+<ul>
+  <% @admins.each do |admin| %>
+    <li>
+      <%= link_to admin.name, index_of_chat %>
+    </li>
+    <p>
+
+    </p>
+  <% end %>
+</ul>
+<li>
+  <%= link_to "Volver", :inicio %>
+</li>

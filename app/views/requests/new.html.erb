@@ -1,0 +1,58 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://github.com/IIC2143/2023-1-grupo-26.git">
+        <span class="icon is-large">
+        <i class="fas fa-home fa-stack-2x"></i>
+        </span>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <% if current_user.image.attached? %>
+          <div class="navbar-item">
+          <%= image_tag(current_user.image, style: "height: 70px;")%>
+          </div>
+        <% end %>
+        <div class="navbar-item">
+        <p>Bienvenid@ <%= current_user.name %></p>
+        </div>
+        <div class="navbar-item">
+        <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "button is-light" %>
+        </div>
+      <% else %>
+        <div class="navbar-item">
+            <%= link_to "Crear cuenta", new_user_registration_path, class: "button is-ghost"%>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "Ingresar", new_user_session_path, class: "button is-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<header class="level-item has-text-centered">
+<h1>Crear solicitud</h1>
+</header>
+<body>
+
+<%= form_with model: @requests, url: requests_path, method: :post, local: true do |form| %>
+<div>
+ <%= form.label :Fecha %><br>
+ <%= form.date_field :request_date, min: Date.today %>
+<% @request.errors.full_messages_for(:request_date).each do |message| %>
+ <div><%= message %></div>
+ <% end %>
+</div>
+<div>
+ <%= form.submit %>
+</div>
+<% end %>
+</body>

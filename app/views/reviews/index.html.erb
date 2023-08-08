@@ -1,0 +1,18 @@
+
+<h1>Reseñas</h1>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= link_to review.user.name, review_path(id_review: review.id)%>
+    </li>
+    <p>
+      Puntaje:
+      <%= review.score %>
+      Reseña:
+      <%= review.body %>
+    </p>
+  <% end %>
+</ul>
+
+<%= link_to "Nueva reseña", new_review_path %>
+<%= link_to "Volver", :back %>

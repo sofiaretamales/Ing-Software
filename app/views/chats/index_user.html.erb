@@ -1,0 +1,14 @@
+<h1>Chats</h1>
+<ul>
+  <% @chats.each do |chat| %>
+    <li>
+      <%= link_to chat.name, chat_user_path %>
+    </li>
+    <p>
+      <%= link_to "Eliminar", product, method: :delete, data: { confirm: "¿Estás seguro?" } %>
+    </p>
+  <% end %>
+</ul>
+<li>
+  <%= link_to "Volver", :inicio %>
+</li>

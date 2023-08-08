@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# r1:
+#   request_date: 2023-04-25
+#   status: MyString
+#   description: MyText
+#   user_id: 1
+
+# r2:
+#   request_date: 2023-04-25
+#   status: MyString
+#   description: MyText
+#   user_id: 1

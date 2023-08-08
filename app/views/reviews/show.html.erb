@@ -1,0 +1,13 @@
+<h1><%= @review.product.name %></h1>
+<p>Puntaje: <%= @review.score %></p>
+<p>Reseña: <%= @review.body %></p>
+
+
+    <li><%= link_to "Editar", edit_review_path(user_id: @review.user_id, id_review: @review.id)
+    %></li>
+    <li><%= link_to "Eliminar", :review, data: {
+turbo_method: :delete,
+turbo_confirm: "Are you sure?",
+} %></li>
+    <li><%= link_to "Volver", :back
+    %></li>

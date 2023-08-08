@@ -1,0 +1,102 @@
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://github.com/IIC2143/2023-1-grupo-26.git">
+        <span class="icon is-large">
+        <i class="fas fa-home fa-stack-2x"></i>
+        </span>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <% if current_user.image.attached? %>
+          <div class="navbar-item">
+          <%= image_tag(current_user.image, style: "height: 70px;")%>
+          </div>
+        <% end %>
+        <div class="navbar-item">
+        <p>Bienvenid@ <%= current_user.name %></p>
+        </div>
+        <div class="navbar-item">
+        <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "button is-light" %>
+        </div>
+      <% else %>
+        <div class="navbar-item">
+            <%= link_to "Crear cuenta", new_user_registration_path, class: "button is-ghost"%>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "Ingresar", new_user_session_path, class: "button is-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+    <nav class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <aside class="menu">
+                <p class="menu-label">
+                Cuenta
+                </p>
+                <ul class="menu-list">
+                <% if  not user_signed_in? %>
+                <%= link_to "Ingresar", new_user_session_path %>
+                <%= link_to "Crear cuenta", new_user_registration_path %>
+                <% end %>
+
+                <% if user_signed_in? %>
+                  <%= link_to "Mi perfil", current_user%>
+                  <%= link_to "Editar perfil", edit_user_registration_path %>
+                  <%= link_to "Mis solicitudes", requests_path(current_user, :product_id) %>
+                  <%= link_to "Lista de deseos", wishlists_path %>
+                  <%= link_to "Mis chats", chat_users_path(current_user) %>
+        
+
+                  <% end %>
+                </ul>
+                <p class="menu-label">
+                    Productos
+                </p>
+                <ul class="menu-list">
+                    <%= link_to "Ver todos", :products %>
+                    <%= link_to "Tecnología", :technology %>
+                    <%= link_to "Hogar", :house %>
+                    <%= link_to "Calzado", :footwear %>
+                    <%= link_to "Moda", :fashion %>
+                </ul>
+            </div>
+        </div>
+
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="title">
+                    BIENVENID@
+                </p>
+
+                <p class="my-4"></p>
+
+                <p class="subtitle">
+                    ¡Las mejores marcas del mundo en un sólo lugar! 
+                </p>
+
+            </div>
+        </div>
+        
+</section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Contáctanos!
+      </p>
+    </div>
+  </footer>

@@ -1,0 +1,23 @@
+
+<h1>Crear reseña</h1>
+<%= form_with model: @review do |form| %>
+<div>
+ <%= form.label :Reseña %><br>
+ <%= form.text_area :body %>
+  <% @review.errors.full_messages_for(:body).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+</div>
+<div>
+ <%= form.label :Puntaje %><br>
+ <%= form.number_field :score %>
+  <% @review.errors.full_messages_for(:score).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+</div>
+
+
+<div>
+ <%= form.submit %>
+</div>
+<% end %>

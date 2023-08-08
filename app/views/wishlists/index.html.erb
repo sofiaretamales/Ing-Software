@@ -1,0 +1,26 @@
+<header>
+<h1 class="has-text-centered">Lista de deseos</h1>
+  <nav class="breadcrumb">
+    <ul class="container">
+      <li><%= link_to "Volver", :inicio %></li>
+    </ul>
+  </nav>
+
+</header>
+
+<div class="columns is-multiline">
+  <% @wishlists.each do |wishlist| %>
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-content">
+          <p class="title"><%= wishlist.product.name %></p>
+          <p class="subtitle"><%= number_to_currency(wishlist.product.price) %></p>
+        </div>
+        <footer class="card-footer">
+          <%= link_to "Ver detalle", product_path(wishlist.product), class: "card-footer-item" %>
+          <%= button_to "Eliminar", wishlist_path(wishlist), class:"btn-link" %>
+        </footer>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,151 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="home/index">
+        <span class="icon is-large">
+        <i class="fas fa-home fa-stack-2x"></i>
+        </span>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <% if current_user.image.attached? %>
+          <div class="navbar-item">
+          <%= image_tag(current_user.image, style: "height: 70px;")%>
+          </div>
+        <% end %>
+        <div class="navbar-item">
+        <p>Bienvenid@ <%= current_user.name %></p>
+        </div>
+        <div class="navbar-item">
+        <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "button is-light" %>
+        </div>
+      <% else %>
+        <div class="navbar-item">
+            <%= link_to "Crear cuenta", new_user_registration_path, class: "button is-ghost"%>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "Ingresar", new_user_session_path, class: "button is-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<header>
+<h1 class="has-text-centered">Productos de Calzado</h1>
+  <nav class="breadcrumb">
+    <ul class="container">
+      <li><%= link_to "Volver", :inicio %></li>
+    </ul>
+  </nav>
+
+</header>
+<body>
+  <section class="section">
+  <% left_column = [] %>
+  <% center_column = [] %>
+  <% right_column = [] %>
+  <% n = 1 %>
+  <div class="columns">
+    
+      <% @footwear.each do |product| %>
+        <% if n==1 %>
+          <% left_column.append(product) %>
+          <% n=2 %>
+        <% elsif n==2 %>
+          <% center_column.append(product) %>
+          <% n=3 %>
+        <% elsif n==3 %>
+          <% right_column.append(product) %>
+          <% n=1 %>
+        <% end %>
+        <% end %>
+
+    <div class="column">
+    <p class="menu-label">
+        Filtrar por categoría
+        </p>
+    <ul class="menu-list">
+    <%= link_to "Ver todos", :products %>
+    <%= link_to "Tecnología", :technology %>
+    <%= link_to "Hogar", :house %>
+    <%= link_to "Calzado", :footwear %>
+    <%= link_to "Moda", :fashion %>
+    </ul>
+    </div> 
+
+    <div class="column">
+      <% left_column.each do |product| %>
+        <div class="card">
+        <div class="card-image has-text-centered px-6", height: 40>
+          <%= image_tag "coming-soon.png"%>
+        </div>
+        <div class="card-content">
+          <p class="title is-size-5">
+            <%= link_to product.name, product %>
+          </p>
+          <p><strong> Precio:</strong>
+            <%= product.price %>
+            <strong> Marca: </strong>
+            <%= product.seller %>
+          </p>
+          
+        </div>
+        </div>
+            
+      <% end %>
+    </div>  
+    <div class="column">
+    <% center_column.each do |product| %>
+      <div class="card">
+        <div class="card-image has-text-centered px-6", height: 40>
+          <%= image_tag "coming-soon.png"%>
+        </div>
+        <div class="card-content">
+          <p class="title is-size-5">
+            <%= link_to product.name, product %>
+          </p>
+          <p><strong> Precio:</strong>
+            <%= product.price %>
+            <strong> Marca: </strong>
+            <%= product.seller %>
+          </p>
+          
+        </div>
+        </div>
+  <% end %>
+    </div>
+    <div class="column">
+    <% right_column.each do |product| %>
+      <div class="card">
+      <div class="card-image has-text-centered px-6", height: 40>
+        <%= image_tag "coming-soon.png"%>
+      </div>
+      <div class="card-content">
+        <p class="title is-size-5">
+          <%= link_to product.name, product %>
+        </p>
+        <p><strong> Precio:</strong>
+          <%= product.price %>
+          <strong> Marca: </strong>
+          <%= product.seller %>
+        </p>
+        
+      </div>
+      </div>
+  <% end %>
+    </div>
+    </div>
+    </section>
+      <p class="level-item has-text-centered">
+        Elige que producto comprar!
+      </p>
+  
+  </body>

@@ -1,0 +1,28 @@
+/.bundle
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/storage/*
+!/storage/.keep
+
+/node_modules
+/yarn-error.log
+
+/public/assets
+.byebug_history
+
+public/coverage
+
+/coverage
+!/coverage/assets
+
+/config/master.key
+.env
+<<<<<<< HEAD
+/coverage
+=======
+.idea
+>>>>>>> 76eed323c490bbecad361c3b1b2130ea523dfc8f
